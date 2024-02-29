@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown giveaway</title>
+</head>
+<body>
+    <style>
+        body{
+            background-color: bisque;
+        }
+        h1{
+            text-align: center;
+        }
+        img{
+            width: 30%;
+            height :250px;
+            float: left;
+            border:20px,20px,20px,20px;
+        margin-right: 10px;
+        border: solid black 1px;
+        padding: 2px;
+        }
+        p{
+            text-align:center ;
+            
+        }
+        body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: inline;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  
+  
+}
+#countdown {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 40px 60px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+#timer {
+  font-size: 3rem;
+  letter-spacing: 3px;
+}
+
+.timer-unit {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 10px;
+  display: block;
+}
+@media (max-width: 600px) {
+  #timer {
+      font-size: 2rem;
+  }
+  .timer-unit {
+      font-size: 1rem;
+  }
+}
+
+    </style>
+    <div id="countdown">
+        <p id="timer">
+            <span id="days"></span>
+            <span class="timer-unit">Days</span>
+            <span id="hours"></span>
+            <span class="timer-unit">Hours</span>
+            <span id="minutes"></span>
+            <span class="timer-unit">Minutes</span>
+            <span id="seconds"></span>
+            <span class="timer-unit">Seconds</span>
+        </p>
+      </div>
+    <h1>Elsie's clothes giveaway</h1>
+    
+        <img src="clothes 2.jpeg" alt="image">
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat ullam animi nisi tenetur dicta iusto sequi sint accusantium recusandae, laudantium aut, beatae, explicabo quae nostrum maxime blanditiis nam voluptas consectetur. </p>
+
+<script>
+    const currentDate = new Date();
+console.log(currentDate); // This logs the current date and time to the console
+const targetDate = new Date('2024-03-11T10:00:00'); // Replace with target
+console.log(targetDate); // Check the target date in the console
+
+let interval;  // Declare interval outside the function
+
+function updateCountdown() {
+  const currentTime = new Date();
+  const difference = Math.abs(targetDate - currentTime);
+
+  if (difference < 0) {
+    clearInterval(interval);
+    document.getElementById("timer").innerText = "The event has started!";
+    return;
+  }
+
+  const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+  document.getElementById("days").innerText = days;
+  document.getElementById("hours").innerText = hours;
+  document.getElementById("minutes").innerText = minutes;
+  document.getElementById("seconds").innerText = seconds;
+}
+
+updateCountdown(); // Call the function once to display initial values immediately
+
+interval = setInterval(updateCountdown, 1000);  // Assign interval after it's declared
+
+</script>
+</body>
+</html>
+</body>
+</html>
